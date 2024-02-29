@@ -70,6 +70,18 @@ fun TipTimeLayout() {
     val tip = calculateTip(amount, tipPercent, numberOfPeople)
     val tipTotal = calculateTotal(amount, tipPercent, numberOfPeople)
 
+    val tipTextState =
+        if (numberOfPeople > 1) stringResource(R.string.tip_per_amount, tip) else stringResource(
+            id = R.string.tip_amount, tip
+        )
+    val totalTextState =
+        if (numberOfPeople > 1) stringResource(
+            R.string.total_per_amount,
+            tipTotal
+        ) else stringResource(
+            id = R.string.total_amount,
+            tipTotal
+        )
     Column(
         modifier = Modifier
             .statusBarsPadding()
@@ -124,13 +136,13 @@ fun TipTimeLayout() {
 
         Text(
             modifier = Modifier.padding(bottom = 15.dp),
-            text = stringResource(R.string.tip_amount, tip),
-            style = MaterialTheme.typography.headlineSmall
+            text = tipTextState,
+            style = MaterialTheme.typography.titleLarge
         )
 
         Text(
-            text = stringResource(id = R.string.total_amount, tipTotal),
-            style = MaterialTheme.typography.headlineSmall,
+            text = totalTextState,
+            style = MaterialTheme.typography.titleLarge,
         )
         Spacer(modifier = Modifier.height(150.dp))
     }
@@ -213,8 +225,8 @@ private fun calculateTotal(
     amount: Double,
     tipPercent: Double,
     numberOfPeople: Int
-) : String {
-    val total = tipPercent / 1 + amount / numberOfPeople
+): String {
+    val total = (amount + tipPercent) / numberOfPeople
     return NumberFormat.getCurrencyInstance().format(total)
 }
 
