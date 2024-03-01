@@ -128,19 +128,24 @@ fun TipTimeLayout() {
         )
 
         AddNumberOfPeopleLayout(
-            modifier = Modifier.padding(bottom = 10.dp),
+            modifier = Modifier
+                .padding(bottom = 15.dp)
+                .align(Alignment.Start),
             numberOfPeople = numberOfPeople,
             onSubtractValue = { numberOfPeople-- },
             onAddValue = { numberOfPeople++ }
         )
 
         Text(
-            modifier = Modifier.padding(bottom = 15.dp),
+            modifier = Modifier
+                .padding(bottom = 15.dp)
+                .align(Alignment.End),
             text = tipTextState,
             style = MaterialTheme.typography.titleLarge
         )
 
         Text(
+            modifier = Modifier.align(Alignment.End),
             text = totalTextState,
             style = MaterialTheme.typography.titleLarge,
         )
@@ -174,34 +179,43 @@ fun AddNumberOfPeopleLayout(
     onSubtractValue: (Int) -> Unit,
     onAddValue: (Int) -> Unit
 ) {
-    Row(
-        modifier = modifier.padding(10.dp),
-        verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.Center
+
+    Column(
+        modifier = modifier.padding(5.dp),
+        horizontalAlignment = Alignment.Start,
     ) {
-        Button(
-            modifier = modifier.padding(end = 10.dp),
-            onClick = { onSubtractValue(numberOfPeople) },
-            enabled = numberOfPeople >= 2
+
+        Text(text = stringResource(R.string.number_of_people))
+
+        Row(
+            modifier = modifier.padding(top = 15.dp),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.Center
         ) {
-            Icon(
-                painter = painterResource(id = R.drawable.ic_remove),
-                contentDescription = null
+            Button(
+                modifier = modifier.padding(end = 10.dp),
+                onClick = { onSubtractValue(numberOfPeople) },
+                enabled = numberOfPeople >= 2
+            ) {
+                Icon(
+                    painter = painterResource(id = R.drawable.ic_remove),
+                    contentDescription = null
+                )
+            }
+            Text(
+                modifier = modifier.padding(5.dp),
+                text = "$numberOfPeople",
+                fontSize = 23.sp
             )
-        }
-        Text(
-            modifier = modifier.padding(5.dp),
-            text = "$numberOfPeople",
-            fontSize = 23.sp
-        )
-        Button(
-            modifier = modifier.padding(start = 10.dp),
-            onClick = { onAddValue(numberOfPeople) },
-        ) {
-            Icon(
-                imageVector = Icons.Filled.Add,
-                contentDescription = null
-            )
+            Button(
+                modifier = modifier.padding(start = 10.dp),
+                onClick = { onAddValue(numberOfPeople) },
+            ) {
+                Icon(
+                    imageVector = Icons.Filled.Add,
+                    contentDescription = null
+                )
+            }
         }
     }
 }

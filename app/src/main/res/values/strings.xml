@@ -9,4 +9,5 @@
     <string name="money_icon_image">Money Icon</string>
     <string name="tip_percentage">Tip Percentage</string>
     <string name="percent_icon">Percent Icon</string>
+    <string name="number_of_people">Number of people</string>
 </resources>
