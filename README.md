@@ -25,7 +25,7 @@ This Shows the Tip Calculator UI for both `Normal Bill Tip Calculator` and `Shar
 
 Screenshot of the `Normal Bill Tip` and `Shared Bill Tip Calculator` Calculator Screen
 
-<img src="https://github.com/Jesil-OT/Tip-Calculator/blob/master/art/Screenshot_20240229_231638.png" width="250"> | <img src="https://github.com/Jesil-OT/Tip-Calculator/blob/master/art/Screenshot_20240229_231739.png" width="250">
+<img src="https://github.com/Jesil-OT/Tip-Calculator/blob/ui-fix/art/Screenshot_20240301_140030.png" width="250"> | <img src="https://github.com/Jesil-OT/Tip-Calculator/blob/ui-fix/art/Screenshot_20240301_140109.png" width="250">
 
 ## Appreciation
 [Google Codelab Starter Project for Tip Calculator](https://github.com/google-developer-training/basic-android-kotlin-compose-training-tip-calculator/tree/starter)
